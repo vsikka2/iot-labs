@@ -57,9 +57,6 @@ function updateKey(e) {
         send_data("68");
     }
 }
-function send_data(s){
-    console.log(s)
-}
 // reset the key to the start state 
 function resetKey(e) {
 
