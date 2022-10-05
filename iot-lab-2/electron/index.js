@@ -1,3 +1,5 @@
+const { send } = require('process');
+
 document.onkeydown = updateKey;
 document.onkeyup = resetKey;
 
@@ -5,30 +7,8 @@ var server_port = 8080;
 var server_addr = "192.168.3.113";   // the IP address of your Raspberry PI
 var client;
 function client(){
-    
-    const net = require('net');
     var input = document.getElementById("message").value;
-
-    client = net.createConnection({ port: server_port, host: server_addr }, () => {
-        // 'connect' listener.
-        console.log('connected to server!');
-        // send the message
-        client.write(`${input}\r\n`);
-    });
-    
-    // get the data from the server
-    client.on('data', (data) => {
-        document.getElementById("bluetooth").innerHTML = data;
-        console.log(data.toString());
-        client.end();
-        client.destroy();
-    });
-
-    client.on('end', () => {
-        console.log('disconnected from server');
-    });
-
-
+    send_data(input)
 }
 
 // for detecting which key is been pressed w,a,s,d
@@ -58,11 +38,25 @@ function updateKey(e) {
     }
 }
 function send_data(s){
+    const net = require('net');
+   
     client = net.createConnection({ port: server_port, host: server_addr }, () => {
         // 'connect' listener.
         console.log('connected to server!');
         // send the message
-        client.write(`${s}\r\n`);
+        client.write(`${input}\r\n`);
+    });
+    
+    // get the data from the server
+    client.on('data', (data) => {
+        document.getElementById("bluetooth").innerHTML = data;
+        console.log(data.toString());
+        client.end();
+        client.destroy();
+    });
+
+    client.on('end', () => {
+        console.log('disconnected from server');
     });
 }
 // reset the key to the start state 
