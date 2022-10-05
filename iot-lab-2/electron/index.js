@@ -58,7 +58,12 @@ function updateKey(e) {
     }
 }
 function send_data(s){
-    client.write(`${s}\r\n`);
+    client = net.createConnection({ port: server_port, host: server_addr }, () => {
+        // 'connect' listener.
+        console.log('connected to server!');
+        // send the message
+        client.write(`${s}\r\n`);
+    });
 }
 // reset the key to the start state 
 function resetKey(e) {
