@@ -5,6 +5,7 @@ document.onkeyup = resetKey;
 
 var server_port = 8080;
 var server_addr = "192.168.3.113";   // the IP address of your Raspberry PI
+
 function client(){
     const net = require('net');
     const input = document.getElementById("message").value;
@@ -70,8 +71,9 @@ function resetKey(e) {
 
 // update data for every 50ms
 function update_data(){
-    setInterval(function(){
-        // get image from python server
-        client();
-    }, 50);
+    client()
+    // setInterval(function(){
+    //     // get image from python server
+    //     client();
+    // }, 50);
 }
