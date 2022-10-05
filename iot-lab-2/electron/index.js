@@ -10,7 +10,7 @@ function client(){
     const input = document.getElementById("message").value;
     
    
-    client = net.createConnection({ port: server_port, host: server_addr }, () => {
+    const client = net.createConnection({ port: server_port, host: server_addr }, () => {
         // 'connect' listener.
         console.log('connected to server!');
         // send the message
