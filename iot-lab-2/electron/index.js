@@ -3,13 +3,13 @@ document.onkeyup = resetKey;
 
 var server_port = 8080;
 var server_addr = "192.168.3.113";   // the IP address of your Raspberry PI
-
+var client;
 function client(){
     
     const net = require('net');
     var input = document.getElementById("message").value;
 
-    const client = net.createConnection({ port: server_port, host: server_addr }, () => {
+    client = net.createConnection({ port: server_port, host: server_addr }, () => {
         // 'connect' listener.
         console.log('connected to server!');
         // send the message
@@ -57,7 +57,9 @@ function updateKey(e) {
         send_data("68");
     }
 }
-
+function send_data(s){
+    client.write(`${s}\r\n`);
+}
 // reset the key to the start state 
 function resetKey(e) {
 
