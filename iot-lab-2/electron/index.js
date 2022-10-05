@@ -5,10 +5,9 @@ document.onkeyup = resetKey;
 
 var server_port = 8080;
 var server_addr = "192.168.3.113";   // the IP address of your Raspberry PI
-var client;
 function client(){
     const net = require('net');
-    var input = document.getElementById("message").value;
+    const input = document.getElementById("message").value;
     
    
     client = net.createConnection({ port: server_port, host: server_addr }, () => {
