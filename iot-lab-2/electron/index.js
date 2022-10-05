@@ -57,6 +57,30 @@ function updateKey(e) {
         send_data("68");
     }
 }
+function send_data(s){
+    const net = require('net');
+    //const input = document.getElementById("message").value;
+    
+   
+    const client = net.createConnection({ port: server_port, host: server_addr }, () => {
+        // 'connect' listener.
+        console.log('connected to server!');
+        // send the message
+        client.write(`${s}\r\n`);
+    });
+    
+    // get the data from the server
+    client.on('data', (data) => {
+        document.getElementById("bluetooth").innerHTML = data;
+        console.log(data.toString());
+        client.end();
+        client.destroy();
+    });
+
+    client.on('end', () => {
+        console.log('disconnected from server');
+    });
+}
 // reset the key to the start state 
 function resetKey(e) {
 
