@@ -36,7 +36,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 temp = CPUTemperature()
                 dist = picar_4wd.get_distance_at(90)
                 list_data=[]
-                list_data.append(data)
+                list_data.append(st)
                 list_data.append(temp.temperature)
                 list_data.append(dist)
                 client.sendall(list_data) # Echo back to client

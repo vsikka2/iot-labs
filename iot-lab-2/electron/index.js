@@ -73,7 +73,7 @@ function send_data(s){
     
     // get the data from the server
     client.on('data', (data) => {
-        document.getElementById("bluetooth").innerHTML = data;
+        document.getElementById("bluetooth").innerHTML = data[0];
         console.log(data.toString());
         client.end();
         client.destroy();
