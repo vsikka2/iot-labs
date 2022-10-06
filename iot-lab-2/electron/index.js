@@ -20,10 +20,10 @@ function client(){
     
     // get the data from the server
     client.on('data', (data) => {
-        data = data.split(",");
-        document.getElementById("bluetooth").innerHTML = data[0];
-        document.getElementById("temperature").innerHTML = data[1];
-        document.getElementById("distance").innerHTML = data[2];
+//        data = data.split(",");
+//        document.getElementById("bluetooth").innerHTML = data[0];
+        document.getElementById("temperature").innerHTML = data;
+//        document.getElementById("distance").innerHTML = data[2];
         console.log(data.toString());
         client.end();
         client.destroy();
@@ -76,10 +76,15 @@ function send_data(s){
     
     // get the data from the server
     client.on('data', (data) => {
-        data = data.split(",");
-        document.getElementById("bluetooth").innerHTML = data[0];
-        document.getElementById("temperature").innerHTML = data[1];
-        document.getElementById("distance").innerHTML = data[2];
+        //        data = data.split(",");
+//        document.getElementById("bluetooth").innerHTML = data[0];
+document.getElementById("temperature").innerHTML = data;
+//        document.getElementById("distance").innerHTML = data[2];
+
+        // data = data.split(",");
+        // document.getElementById("bluetooth").innerHTML = data[0];
+        // document.getElementById("temperature").innerHTML = data[1];
+        // document.getElementById("distance").innerHTML = data[2];
         console.log(data.toString());
         client.end();
         client.destroy();
