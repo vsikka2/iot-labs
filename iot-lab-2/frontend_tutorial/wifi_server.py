@@ -9,11 +9,11 @@ def move(s):
     print(s)
     if("87" in s):
         picar_4wd.forward(power)
-    elif(s == "83"):
+    elif("83" in s):
         picar_4wd.backward(power)
-    elif(s == "65"):
+    elif("65" in s):
         picar_4wd.turn_left(power)
-    elif(s == "68"):
+    elif("68" in s):
         picar_4wd.turn_right(power)
     else:
         print("here")
