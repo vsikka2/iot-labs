@@ -55,6 +55,8 @@ function updateKey(e) {
         // right (d)
         document.getElementById("rightArrow").style.color = "green";
         send_data("68");
+    } else{
+        send_data("1")
     }
 }
 function send_data(s){
