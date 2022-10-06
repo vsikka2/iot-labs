@@ -15,6 +15,7 @@ def move(s):
     elif(s == "68"):
         picar_4wd.turn_right(power)
     else:
+        print("here")
         picar_4wd.stop()
             
 
