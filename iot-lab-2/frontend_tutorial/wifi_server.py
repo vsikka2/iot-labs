@@ -3,7 +3,7 @@ import socket
 HOST = "192.168.3.113" # IP address of your Raspberry PI
 PORT = 8080          # Port to listen on (non-privileged ports are > 1023)
 import picar_4wd
-
+from gpiozero import CPUTemperature
 def move(s):
     power = 20
     print(s)
@@ -33,6 +33,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             if data != b"":
                 st = data.decode('ascii')
                 move(st)
+                temp = CPUTemperature()
+                print("Temp = "+str(temp.temperature))
                 client.sendall(data) # Echo back to client
     except: 
         print("Closing socket")
