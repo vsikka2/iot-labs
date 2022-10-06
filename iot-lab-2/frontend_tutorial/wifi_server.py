@@ -39,9 +39,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 list_data.append(data)
                 list_data.append(temp.temperature)
                 list_data.append(dist)
-#                print("Temp = "+str(temp.temperature))
-#                print("S")
-                client.sendall(data) # Echo back to client
+                client.sendall(list_data) # Echo back to client
     except: 
         print("Closing socket")
         client.close()
