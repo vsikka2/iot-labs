@@ -12,16 +12,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             client, clientInfo = s.accept()
             print("server recv from: ", clientInfo)
             data = client.recv(1024)      # receive 1024 Bytes of message in binary format
-            
-            if(data.includes("87")):
-                print("he")
-            if(data == "b\'87\\r\\n\'"):
-                print("hi")
-                picar_4wd.forward(30)
-                sleep(2)
-                picar_4wd.stop()
-            print(data)
-            client.sendall(data) # Echo back to client
+            if data != b"":
+                print(data)
+                client.sendall(data) # Echo back to client
     except: 
         print("Closing socket")
         client.close()
