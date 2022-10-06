@@ -30,8 +30,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             print("server recv from: ", clientInfo)
             data = client.recv(1024)      # receive 1024 Bytes of message in binary format
             if data != b"":
-                s = data.decode('ascii')
-                print(s)
+                st = data.decode('ascii')
+                print(st)
                 client.sendall(data) # Echo back to client
     except: 
         print("Closing socket")
