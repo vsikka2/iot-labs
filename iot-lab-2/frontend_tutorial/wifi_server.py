@@ -13,8 +13,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             print("server recv from: ", clientInfo)
             data = client.recv(1024)      # receive 1024 Bytes of message in binary format
             if data != b"":
-                if(data == "87"):
-                    picar_4wd.forward(30);
+                if(data == "b'87\r\n"):
+                    print("hi")
+                    picar_4wd.forward(30)
                     sleep(2)
                     picar_4wd.stop()
                 print(data)
