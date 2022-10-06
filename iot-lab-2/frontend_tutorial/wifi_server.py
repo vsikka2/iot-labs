@@ -6,7 +6,8 @@ import picar_4wd
 
 def move(s):
     power = 20
-    if(s == "87"):
+    print(s)
+    if("87" in s):
         picar_4wd.forward(power)
     elif(s == "83"):
         picar_4wd.backward(power)
