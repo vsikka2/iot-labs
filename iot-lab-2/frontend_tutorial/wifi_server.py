@@ -36,8 +36,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 st = move(st)
                 temp = str(CPUTemperature().temperature)
                 print(temp)
-                temp_2 = bytearray(temp)
-                print(temp_2)
+                temp_2 = bytes(temp,'UTF-8')
+                print(temp)
                 
                 client.sendall(temp_2)
                 # temp = CPUTemperature()
