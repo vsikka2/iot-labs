@@ -21,11 +21,9 @@ function client(){
     // get the data from the server
     client.on('data', (data) => {
 
-        first_comma = data.indexOf(',')
         
-        document.getElementById("bluetooth").innerHTML = data.substring(first_comma);
-        document.getElementById("temperature").innerHTML = data;
-        document.getElementById("distance").innerHTML = data;
+        document.getElementById("bluetooth").innerHTML = data;
+        
         client.end();
         client.destroy();
     });
@@ -77,11 +75,8 @@ function send_data(s){
     
     // get the data from the server
     client.on('data', (data) => {
-        data = data.split(",");
         document.getElementById("bluetooth").innerHTML = data;
-        document.getElementById("temperature").innerHTML = data[1];
-        document.getElementById("distance").innerHTML = data[2];
-
+        
         client.end();
         client.destroy();
     });
