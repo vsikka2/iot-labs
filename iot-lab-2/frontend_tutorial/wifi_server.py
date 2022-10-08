@@ -34,9 +34,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             if data != b"":
                 st = data.decode('ascii')
                 st = move(st)
-                temp = CPUTemperature().temperature
+                temp = str(CPUTemperature().temperature)
                 print(temp)
-                temp_2 = temp.encode('utf-8')
+                temp_2 = bytearray(temp)
                 print(temp_2)
                 
                 client.sendall(temp_2)
