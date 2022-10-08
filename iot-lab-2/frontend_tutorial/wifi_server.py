@@ -6,7 +6,6 @@ import picar_4wd
 from gpiozero import CPUTemperature
 def move(s):
     power = 20
-    print(s)
     if("87" in s):
         picar_4wd.forward(power)
     elif("83" in s):
@@ -17,14 +16,14 @@ def move(s):
         picar_4wd.turn_right(power)
     else:
         picar_4wd.stop()
-            
+        return s
+    return ""
 
 
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.bind((HOST, PORT))
     s.listen()
-
     try:
         while 1:
             client, clientInfo = s.accept()
@@ -32,9 +31,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             data = client.recv(1024)      # receive 1024 Bytes of message in binary format
             if data != b"":
                 st = data.decode('ascii')
-                move(st)
+                st = move(st)
                 temp = CPUTemperature()
-                client.sendall(temp) 
+                client.sendall(temp)
                 # temp = CPUTemperature()
                 # dist = picar_4wd.get_distance_at(90)
                 # list_data=[]

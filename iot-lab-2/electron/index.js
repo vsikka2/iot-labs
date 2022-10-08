@@ -78,7 +78,7 @@ function send_data(s){
     client.on('data', (data) => {
         //        data = data.split(",");
 //        document.getElementById("bluetooth").innerHTML = data[0];
-document.getElementById("temperature").innerHTML = data;
+            document.getElementById("temperature").innerHTML = data;
 //        document.getElementById("distance").innerHTML = data[2];
 
         // data = data.split(",");
