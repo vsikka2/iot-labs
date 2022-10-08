@@ -37,7 +37,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 temp = CPUTemperature().temperature
                 print(temp)
                 temp = binascii.a2b_uu(temp)
-
+                print(temp)
                 client.sendall(temp)
                 # temp = CPUTemperature()
                 # dist = picar_4wd.get_distance_at(90)
