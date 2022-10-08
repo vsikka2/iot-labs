@@ -33,6 +33,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             if data != b"":
                 st = data.decode('ascii')
                 st = move(st)
+                print("here")
                 temp = CPUTemperature()
                 print(temp)
                 client.sendall(temp)
