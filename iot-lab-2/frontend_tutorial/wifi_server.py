@@ -36,9 +36,10 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 st = move(st)
                 temp = CPUTemperature().temperature
                 print(temp)
-                temp = bin(temp)
-                print(temp)
-                client.sendall(temp)
+                temp_2 = temp.encode('utf-8')
+                print(temp_2)
+                
+                client.sendall(temp_2)
                 # temp = CPUTemperature()
                 # dist = picar_4wd.get_distance_at(90)
                 # list_data=[]
