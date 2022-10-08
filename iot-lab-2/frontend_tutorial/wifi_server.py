@@ -33,6 +33,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 st = data.decode('ascii')
                 st = move(st)
                 temp = CPUTemperature()
+                print(temp)
                 client.sendall(temp)
                 # temp = CPUTemperature()
                 # dist = picar_4wd.get_distance_at(90)
