@@ -36,7 +36,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 st = move(st)
                 temp = CPUTemperature().temperature
                 print(temp)
-                temp = binascii.a2b_uu(temp)
+                temp = bin(temp)
                 print(temp)
                 client.sendall(temp)
                 # temp = CPUTemperature()
