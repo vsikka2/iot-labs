@@ -33,15 +33,14 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             if data != b"":
                 st = data.decode('ascii')
                 st = move(st)
-                print("here")
-                temp = CPUTemperature()
+                temp = CPUTemperature().temperature
                 print(temp)
                 client.sendall(temp)
                 # temp = CPUTemperature()
                 # dist = picar_4wd.get_distance_at(90)
                 # list_data=[]
                 # list_data.append(st)
-                # list_data.append(temp.temperature)
+                # list_data.append(temp)
                 # list_data.append(dist)
                 # to_ret = ",".join(list_data)
                 # to_ret = bin(to_ret)
