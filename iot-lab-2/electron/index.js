@@ -23,8 +23,8 @@ function client(){
 
         //data = data.split(",");
         document.getElementById("bluetooth").innerHTML = data;
-        document.getElementById("temperature").innerHTML = data[1];
-        document.getElementById("distance").innerHTML = data[2];
+        document.getElementById("temperature").innerHTML = data;
+        document.getElementById("distance").innerHTML = data;
         client.end();
         client.destroy();
     });
