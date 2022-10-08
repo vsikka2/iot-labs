@@ -35,20 +35,14 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 st = data.decode('ascii')
                 st = move(st)
                 temp = str(CPUTemperature().temperature)
-                print(temp)
-                temp_2 = bytes(temp,'UTF-8')
-                print(temp)
-                
-                client.sendall(temp_2)
-                # temp = CPUTemperature()
-                # dist = picar_4wd.get_distance_at(90)
-                # list_data=[]
-                # list_data.append(st)
-                # list_data.append(temp)
-                # list_data.append(dist)
-                # to_ret = ",".join(list_data)
-                # to_ret = bin(to_ret)
-                # client.sendall(te) # Echo back to client
+                dist = str(picar_4wd.get_distance_at(90))
+                list_data=[]
+                list_data.append(st)
+                list_data.append(temp)
+                list_data.append(dist)
+                to_ret = ",".join(list_data)
+                data = bytes(to_ret,'UTF-8')
+                client.sendall(data)
     except: 
         print("Closing socket")
         client.close()
