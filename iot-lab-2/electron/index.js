@@ -21,9 +21,9 @@ function client(){
     // get the data from the server
     client.on('data', (data) => {
 
-        data = data.split(',');
+        first_comma = data.indexOf(',')
         
-        document.getElementById("bluetooth").innerHTML = data;
+        document.getElementById("bluetooth").innerHTML = data.substring(first_comma);
         document.getElementById("temperature").innerHTML = data;
         document.getElementById("distance").innerHTML = data;
         client.end();
