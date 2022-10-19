@@ -1,7 +1,7 @@
 import socket
 
 HOST = "192.168.3.113" # IP address of your Raspberry PI
-PORT = 8080          # Port to listen on (non-privileged ports are > 1023)
+PORT = 8081         # Port to listen on (non-privileged ports are > 1023)
 import picar_4wd
 import binascii
 from gpiozero import CPUTemperature
